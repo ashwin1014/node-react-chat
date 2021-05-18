@@ -10,6 +10,8 @@ const Home = () => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
 
+  const isDisabled = !name || !room;
+
   return (
     <>
       <Head>
@@ -24,8 +26,8 @@ const Home = () => {
           <div>
             <input placeholder='Room' value={room} className='joinInput mt-20' type='text' onChange={(e) => setRoom(e.target.value)} />
           </div>
-          <Link to={`/chat?name=${name}&room=${room}`} onClick={(event) => (!name || !room ? event.preventDefault() : null)}>
-            <button className='button mt-20' type='submit'>
+          <Link to={`/chat?name=${name}&room=${room}`} onClick={(event) => (isDisabled ? event.preventDefault() : null)}>
+            <button className='button mt-20' type='submit' disabled={isDisabled}>
               Sign In
             </button>
           </Link>

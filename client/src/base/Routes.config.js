@@ -1,8 +1,8 @@
-// import { lazy } from '@loadable/component';
+import { lazy } from '@loadable/component';
 
 import { Home } from '@pages';
 
-// const Chat = lazy(() => import('@pages/Chat/Chat'));
+const Chat = lazy(() => import('@pages/Chat/Chat'));
 
 export const ROUTES = [
   {
@@ -10,11 +10,11 @@ export const ROUTES = [
     key: 'Home',
     exact: true,
     component: Home
+  },
+  {
+    path: '/chat',
+    key: 'Chat',
+    exact: true,
+    component: Chat
   }
-  // {
-  //   path: '/chat',
-  //   key: 'Chat',
-  //   exact: true,
-  //   component: Chat
-  // }
 ];
