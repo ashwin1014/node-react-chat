@@ -1,0 +1,37 @@
+@use './styleUtils/mixins' as m;
+// @use './styleUtils/variables' as *;
+@use './styleUtils/breakpoints' as *;
+@use './styleUtils/helperClasses';
+@use './styleUtils/reset';
+
+@include m.font-face(GilroyRegular, './fonts/Gilroy-Regular', 400, normal, ttf woff2 woff);
+@include m.font-face(GilroyMedium, './fonts/Gilroy-Medium', 500, normal, ttf woff2 woff);
+@include m.font-face(GilroySemiBold, './fonts/Gilroy-Semibold', 600, normal, ttf woff2 woff);
+@include m.font-face(GilroyBold, './fonts/Gilroy-Bold', 700, normal, ttf woff2 woff);
+@include m.font-face(GilroyExtraBold, './fonts/Gilroy-Extrabold', 700, normal, ttf woff2 woff);
+
+html,
+body {
+  box-sizing: border-box;
+  position: relative;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-family: $font-regular;
+  font-size: $font-md3;
+  height: 100%;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.app-layout {
+  overflow-x: hidden;
+  position: relative;
+  height: calc(100vh);
+}

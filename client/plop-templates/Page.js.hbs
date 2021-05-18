@@ -1,0 +1,21 @@
+import React from 'react';
+
+import { Head } from '@sharedComponents';
+import strings from '@localization/{{pascalCase name}}.locale';
+
+import './{{pascalCase name}}.style.scss';
+
+const {{pascalCase name}} = () => {
+  return (
+    <>
+      <Head>
+        <title>{strings.Title}</title>
+      </Head>
+      <div className='profile'>
+        <h1>{strings.Title}</h1>
+      </div>
+    </>
+  );
+};
+
+export default {{pascalCase name}};
