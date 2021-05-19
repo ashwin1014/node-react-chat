@@ -12,6 +12,7 @@ import './Chat.style.scss';
 const Chat = ({ location }) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
+  const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
@@ -40,9 +41,12 @@ const Chat = ({ location }) => {
   }, [location.search, ENDPOINT]);
 
   useEffect(() => {
-    // eslint-disable-next-line no-shadow
     socket.current.on('message', (msg) => {
       setMessages((prev) => [...prev, msg]);
+    });
+
+    socket.current.on('roomData', ({ usr }) => {
+      setUsers(usr);
     });
   }, []);
 
@@ -53,7 +57,7 @@ const Chat = ({ location }) => {
     }
   };
 
-  console.log(message, messages);
+  console.log(users);
 
   return (
     <>
